@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Astha &amp; Mohit</title>
+<meta name="description" content="Astha weds Mohit — 3rd to 5th December 2026, Sarangpur, Madhya Pradesh." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Josefin+Sans:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --blush:#f7e3e0; --rose:#c48a7a; --rosegold:#b76e79; --plum:#6b4551;
+    --cream:#fffaf8; --ink:#4a3a3c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Josefin Sans',sans-serif;background:var(--cream);color:var(--ink);font-size:18px;line-height:1.75;font-weight:300;overflow-x:hidden}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif}
+  .script{font-family:'Great Vibes',cursive}
+  section{padding:6rem 1.25rem;position:relative}
+  .wrap{max-width:1000px;margin:0 auto}
+  .center{text-align:center}
+  h2{font-size:clamp(2rem,5vw,3rem);color:var(--plum);font-weight:400;letter-spacing:.02em}
+  .eyebrow{letter-spacing:.4em;text-transform:uppercase;font-size:.72rem;color:var(--rosegold);font-weight:600;margin-bottom:.7rem}
+  .rule{width:60px;height:1px;background:var(--rosegold);margin:1.3rem auto}
+
+  .music{position:fixed;bottom:22px;right:22px;z-index:50;width:52px;height:52px;border-radius:50%;
+    background:#fff;color:var(--rosegold);border:1px solid var(--rosegold);cursor:pointer;font-size:1.2rem;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(183,110,121,.3);transition:.3s}
+  .music:hover{transform:scale(1.08);background:var(--rosegold);color:#fff}
+  .music.playing{animation:spin 4s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .invocation{margin:0 auto 1.6rem;text-align:center}
+  .ganesha-svg{width:120px;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 3px 10px rgba(107,69,81,.18))}
+  .invoke-text{font-family:'Noto Serif Devanagari','Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.02em;margin-top:.5rem;opacity:.95}
+  .shiva-motif{margin:0 auto 1.4rem;text-align:center}
+  .shiva-svg{width:200px;height:auto;display:block;margin:0 auto}
+  .shiva-text{font-family:'Noto Serif Devanagari',serif;font-size:.82rem;letter-spacing:.15em;opacity:.8;margin-top:.35rem}
+
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:3rem 1.5rem;
+    background:radial-gradient(circle at 50% 35%, #fff, var(--blush) 75%)}
+  .hero .inner{max-width:760px}
+  .hero .amp-script{font-family:'Great Vibes',cursive;font-size:clamp(3rem,10vw,6rem);color:var(--rosegold);line-height:.8;display:block;margin:.2rem 0}
+  .names{font-size:clamp(2.6rem,9vw,5rem);color:var(--plum);font-weight:400;letter-spacing:.06em;text-transform:uppercase}
+  .hero .pre{letter-spacing:.5em;text-transform:uppercase;font-size:.8rem;color:var(--rose);margin-bottom:1.6rem}
+  .hero .date{margin-top:1.8rem;font-family:'Cormorant Garamond';font-size:1.5rem;font-style:italic;color:var(--rose)}
+  .hero .loc{letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;color:var(--rosegold);margin-top:.6rem}
+
+  .count{background:var(--blush)}
+  .cd-grid{display:flex;gap:2.4rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+  .cd-box{min-width:80px}
+  .cd-box .num{font-family:'Cormorant Garamond';font-size:3rem;color:var(--plum);line-height:1}
+  .cd-box .lbl{letter-spacing:.25em;text-transform:uppercase;font-size:.68rem;color:var(--rosegold);margin-top:.4rem}
+
+  .story .wrap{max-width:720px}
+  .story p{font-family:'Cormorant Garamond';font-size:1.5rem;font-style:italic;color:var(--plum)}
+  .couple{display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;margin-top:2.8rem}
+  .couple .nm{font-family:'Great Vibes',cursive;font-size:2.6rem;color:var(--rosegold)}
+  .couple .of{font-size:.9rem;letter-spacing:.05em;color:var(--rose)}
+  .couple .amp{font-family:'Great Vibes',cursive;font-size:2.4rem;color:var(--plum)}
+  @media(max-width:640px){.couple{grid-template-columns:1fr;gap:.8rem}}
+
+  .events{background:var(--cream)}
+  .timeline{max-width:640px;margin:3rem auto 0;position:relative}
+  .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--rosegold);opacity:.4;transform:translateX(-50%)}
+  .tl{position:relative;padding:1.4rem 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.2rem}
+  .tl .dot{width:14px;height:14px;border-radius:50%;background:var(--rosegold);border:3px solid var(--cream);box-shadow:0 0 0 1px var(--rosegold)}
+  .tl h3{font-size:1.6rem;color:var(--plum);font-weight:500}
+  .tl .meta{font-size:.95rem;color:var(--rose);letter-spacing:.03em}
+  .tl.left .r{visibility:hidden}
+  .tl.right{text-align:left}
+  .tl.left{text-align:right}
+  @media(max-width:600px){
+    .timeline::before{left:9px}
+    .tl{grid-template-columns:auto 1fr;text-align:left!important}
+    .tl .dot{order:0}.tl .l,.tl .r{order:1;grid-column:2}
+    .tl.left .r{display:none}
+  }
+
+  .venue{background:var(--blush)}
+  .map-frame{margin:2.2rem auto 0;max-width:880px;border-radius:20px;overflow:hidden;box-shadow:0 16px 40px rgba(107,69,81,.15)}
+  .map-frame iframe{width:100%;height:360px;border:0;display:block}
+  .btn{display:inline-block;margin-top:1.5rem;border:1px solid var(--rosegold);color:var(--plum);text-decoration:none;
+    padding:.85rem 2.2rem;letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;border-radius:40px;transition:.3s}
+  .btn:hover{background:var(--rosegold);color:#fff}
+  .map-note{margin-top:1rem;font-size:.9rem;color:var(--rose)}
+
+  footer{background:var(--plum);color:var(--blush);text-align:center;padding:4rem 1.25rem}
+  footer .script{font-size:3rem;color:#fff}
+  .fade{opacity:0;transform:translateY(24px);transition:1s ease}
+  .fade.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- Drop a royalty-free / licensed track named song.mp3 next to this file -->
+<audio id="song" loop preload="none"><source src="song.mp3" type="audio/mpeg" /></audio>
+<button class="music" id="musicBtn" aria-label="Play music">&#9835;</button>
+
+<header class="hero">
+  <div class="inner">
+    <div class="invocation" style="color:#b76e79"><svg class="ganesha-svg" viewBox="0 0 240 250" role="img" aria-label="Lord Ganesha — Shri Ganeshaya Namah"><defs><path id="gp" d="M120,16 C130,34 130,50 120,64 C110,50 110,34 120,16 Z"/></defs><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><g stroke-width="1" opacity="0.4"><use href="#gp"/><use href="#gp" transform="rotate(22.5 120 120)"/><use href="#gp" transform="rotate(45 120 120)"/><use href="#gp" transform="rotate(67.5 120 120)"/><use href="#gp" transform="rotate(90 120 120)"/><use href="#gp" transform="rotate(112.5 120 120)"/><use href="#gp" transform="rotate(135 120 120)"/><use href="#gp" transform="rotate(157.5 120 120)"/><use href="#gp" transform="rotate(180 120 120)"/><use href="#gp" transform="rotate(202.5 120 120)"/><use href="#gp" transform="rotate(225 120 120)"/><use href="#gp" transform="rotate(247.5 120 120)"/><use href="#gp" transform="rotate(270 120 120)"/><use href="#gp" transform="rotate(292.5 120 120)"/><use href="#gp" transform="rotate(315 120 120)"/><use href="#gp" transform="rotate(337.5 120 120)"/></g><circle cx="120" cy="120" r="60" stroke-width="1.2" opacity="0.7"/><circle cx="120" cy="120" r="54" stroke-width="1" stroke-dasharray="1.5 7" opacity="0.85"/><path d="M100,104 L107,88 L114,98 L120,82 L126,98 L133,88 L140,104" stroke-width="2.2"/><circle cx="120" cy="126" r="21" stroke-width="2"/><ellipse cx="95" cy="127" rx="13" ry="17" stroke-width="2"/><ellipse cx="145" cy="127" rx="13" ry="17" stroke-width="2"/><ellipse cx="96" cy="127" rx="6" ry="9" stroke-width="1.2" opacity="0.65"/><ellipse cx="144" cy="127" rx="6" ry="9" stroke-width="1.2" opacity="0.65"/><path d="M108,122 q5,-4 10,0" stroke-width="1.6"/><path d="M122,122 q5,-4 10,0" stroke-width="1.6"/><path d="M120,103 L120,116 M116,104 Q120,111 124,104" stroke-width="1.4"/><path d="M120,128 C120,143 118,155 108,159 C101,162 97,155 101,150" stroke-width="4.5"/><path d="M112,143 L108,151 M128,143 L132,151" stroke-width="1.4"/><path d="M82,170 Q120,150 158,170" stroke-width="1.6" opacity="0.85"/><path d="M95,172 Q120,160 145,172" stroke-width="1.3" opacity="0.6"/></g><circle cx="120" cy="80" r="3" fill="currentColor"/></svg><div class="invoke-text">॥ श्री गणेशाय नमः ॥</div></div>
+    <div class="pre">We're getting married</div>
+    <h1 class="names">Astha<span class="amp-script">&amp;</span>Mohit</h1>
+    <div class="date">Thursday to Saturday, 3<sup>rd</sup>&ndash;5<sup>th</sup> December 2026</div>
+    <div class="loc">Sarangpur · Madhya Pradesh</div>
+  </div>
+</header>
+
+<section class="count center">
+  <div class="wrap">
+    <div class="eyebrow">Forever starts in</div>
+    <div class="rule"></div>
+    <div class="cd-grid">
+      <div class="cd-box"><div class="num" id="d">--</div><div class="lbl">Days</div></div>
+      <div class="cd-box"><div class="num" id="h">--</div><div class="lbl">Hours</div></div>
+      <div class="cd-box"><div class="num" id="m">--</div><div class="lbl">Mins</div></div>
+      <div class="cd-box"><div class="num" id="s">--</div><div class="lbl">Secs</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="story center fade">
+  <div class="wrap">
+    <div class="shiva-motif" style="color:#b76e79"><svg class="shiva-svg" viewBox="0 0 240 70" role="img" aria-label="Trishul, Damaru and crescent — Om Namah Shivaya"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8,40 H66" stroke-width="1" opacity="0.5"/><path d="M92,24 A16,16 0 1 0 92,56 A12,12 0 1 1 92,24 Z" fill="currentColor" stroke="none"/><path d="M120,64 L120,26"/><path d="M106,26 L134,26"/><path d="M106,26 L104,8"/><path d="M120,26 L120,2"/><path d="M134,26 L136,8"/><circle cx="120" cy="42" r="2.6" fill="currentColor" stroke="none"/><path d="M158,30 L178,30 L168,40 Z"/><path d="M158,50 L178,50 L168,40 Z"/><path d="M156,40 L180,40" stroke-width="1"/><path d="M198,40 H232" stroke-width="1" opacity="0.5"/></g></svg><div class="shiva-text">॥ ॐ नमः शिवाय ॥</div></div>
+    <div class="eyebrow">With love &amp; blessings</div>
+    <div class="rule"></div>
+    <p>&ldquo;And so, together, they begin the most beautiful chapter of all.&rdquo;</p>
+    <div class="couple">
+      <div><div class="nm">Astha</div><div class="of">Daughter of Shri Mahesh Sharma</div></div>
+      <div class="amp">&amp;</div>
+      <div><div class="nm">Mohit</div><div class="of">Son of Shri Vishnu Prasad Sharma</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="events center fade">
+  <div class="wrap">
+    <div class="eyebrow">The itinerary</div>
+    <h2>Our Celebrations</h2>
+    <div class="timeline">
+      <div class="tl left"><div class="l"><h3>Mata Pujan</h3><div class="meta">3<sup>rd</sup> Dec · 12:00&ndash;4:00 PM</div></div><div class="dot"></div><div class="r"></div></div>
+      <div class="tl right"><div class="l"></div><div class="dot"></div><div class="r"><h3>Haldi</h3><div class="meta">4<sup>th</sup> Dec · 12:00&ndash;3:00 PM</div></div></div>
+      <div class="tl left"><div class="l"><h3>Sangeet</h3><div class="meta">4<sup>th</sup> Dec · 7:00&ndash;10:00 PM</div></div><div class="dot"></div><div class="r"></div></div>
+      <div class="tl right"><div class="l"></div><div class="dot"></div><div class="r"><h3>Phere</h3><div class="meta">5<sup>th</sup> Dec · 12:00&ndash;3:00 PM</div></div></div>
+      <div class="tl left"><div class="l"><h3>Reception</h3><div class="meta">5<sup>th</sup> Dec · 7:00&ndash;11:00 PM</div></div><div class="dot"></div><div class="r"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="venue center fade">
+  <div class="wrap">
+    <div class="eyebrow">Celebrations at</div>
+    <h2>Sarangpur, Madhya Pradesh</h2>
+    <div class="map-frame">
+      <!-- Replace this src with your own Google Maps embed link -->
+      <iframe src="https://www.google.com/maps?q=Sarangpur,+Madhya+Pradesh&output=embed" loading="lazy" title="Venue map"></iframe>
+    </div>
+    <p class="map-note">Exact venue &amp; directions will be shared here — map link is editable.</p>
+    <a class="btn" href="https://www.google.com/maps?q=Sarangpur,+Madhya+Pradesh" target="_blank" rel="noopener">View on Map</a>
+  </div>
+</section>
+
+<footer>
+  <div class="script">Astha &amp; Mohit</div>
+  <p class="serif" style="font-size:1.3rem;font-style:italic;margin-top:.6rem">Can't wait to celebrate with you</p>
+  <p style="margin-top:1.4rem;letter-spacing:.3em;font-size:.75rem;opacity:.8">#ASTHAMEETSMOHIT — DECEMBER 2026</p>
+</footer>
+
+<script>
+  var target = new Date("2026-12-05T12:00:00").getTime();
+  function tick(){
+    var gap = Math.max(0, target - Date.now());
+    document.getElementById('d').textContent = Math.floor(gap/86400000);
+    document.getElementById('h').textContent = ('0'+Math.floor(gap%86400000/3600000)).slice(-2);
+    document.getElementById('m').textContent = ('0'+Math.floor(gap%3600000/60000)).slice(-2);
+    document.getElementById('s').textContent = ('0'+Math.floor(gap%60000/1000)).slice(-2);
+  }
+  tick(); setInterval(tick,1000);
+
+  var song=document.getElementById('song'), btn=document.getElementById('musicBtn');
+  btn.addEventListener('click',function(){
+    if(song.paused){song.play().then(function(){btn.classList.add('playing')}).catch(function(){alert('Add a song.mp3 file next to this page to enable music.')});}
+    else{song.pause();btn.classList.remove('playing');}
+  });
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.15});
+  document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
