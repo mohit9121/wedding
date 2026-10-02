@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f7f3ed" />
 
-    <title>सौ. आस्था संग चि. मोहित | विवाह निमंत्रण</title>
+    <title>Aastha & Mohit | Wedding Invitation</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap');
 
         :root {
             --cream: #fbf4e8;
@@ -21,8 +21,8 @@
             --accent: #b58a3a;
             --gold: #c49a4a;
             --line: rgba(90, 16, 32, 0.14);
-            --serif: "Rozha One", "Yatra One", "Noto Serif Devanagari", serif;
-            --sans: "Noto Serif Devanagari", "Tiro Devanagari Hindi", serif;
+            --serif: "Cinzel", "Rozha One", "Noto Serif Devanagari", serif;
+            --sans: "Cormorant Garamond", "Noto Serif Devanagari", serif;
         }
 
         * {
@@ -104,11 +104,12 @@
 
         .intro-names {
             font-family: var(--serif);
-            font-size: clamp(38px, 10vw, 65px);
-            line-height: 1.1;
-            font-weight: 400;
+            font-size: clamp(32px, 8vw, 52px);
+            line-height: 1.2;
+            font-weight: 600;
             color: #fffaf1;
             margin: 15px 0;
+            letter-spacing: 1px;
         }
 
         .intro-names span {
@@ -116,24 +117,27 @@
         }
 
         .intro-amp {
-            font-size: 22px;
+            font-size: 20px;
             margin: 6px 0;
             color: var(--gold);
+            font-family: var(--sans);
+            font-style: italic;
         }
 
         .intro-date-line {
             font-size: 15px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: #e4c77d;
             margin-top: 15px;
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: uppercase;
         }
 
         .intro-family-line {
-            font-size: 13px;
-            color: rgba(255, 250, 241, 0.75);
+            font-size: 14px;
+            color: rgba(255, 250, 241, 0.85);
             margin-top: 10px;
-            font-style: italic;
+            font-family: "Noto Serif Devanagari", serif;
         }
 
         .enter-button {
@@ -144,11 +148,13 @@
             padding: 14px 32px;
             border-radius: 100px;
             font-family: var(--sans);
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
+            letter-spacing: 1px;
             cursor: pointer;
             transition: all .3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
         }
 
         .enter-button:hover {
@@ -268,8 +274,9 @@
         }
 
         .card-label {
-            font-size: 15px;
-            letter-spacing: 2px;
+            font-family: "Noto Serif Devanagari", serif;
+            font-size: 16px;
+            letter-spacing: 1px;
             color: var(--gold);
             margin-bottom: 8px;
             font-weight: 600;
@@ -277,10 +284,12 @@
 
         .card-title {
             font-family: var(--serif);
-            font-size: clamp(36px, 7vw, 56px);
-            font-weight: 400;
+            font-size: clamp(32px, 6vw, 50px);
+            font-weight: 600;
             color: var(--deep-maroon);
             margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .divider {
@@ -294,8 +303,9 @@
             max-width: 650px;
             margin: auto;
             color: var(--muted);
-            line-height: 2;
-            font-size: 16px;
+            line-height: 1.9;
+            font-size: 18px;
+            font-family: "Noto Serif Devanagari", var(--sans);
         }
 
         .couple-details {
@@ -308,16 +318,24 @@
 
         .person-info {
             margin: 15px 0;
-            font-size: 17px;
+            font-size: 18px;
             color: var(--deep-maroon);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .person-name {
             font-family: var(--serif);
-            font-size: 30px;
+            font-size: 32px;
             color: var(--maroon);
             display: inline-block;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .person-parent {
+            font-size: 16px;
+            color: var(--muted);
+            margin-top: 4px;
         }
 
         /* =========================
@@ -335,17 +353,19 @@
 
         .section-label {
             font-size: 13px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--gold);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 600;
+            text-transform: uppercase;
         }
 
         .section-title {
             font-family: var(--serif);
-            font-size: clamp(32px, 6vw, 56px);
-            font-weight: 400;
+            font-size: clamp(30px, 5vw, 48px);
+            font-weight: 600;
             line-height: 1.2;
+            letter-spacing: 1px;
         }
 
         /* =========================
@@ -381,22 +401,24 @@
 
         .event-name {
             font-family: var(--serif);
-            font-size: 26px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .event-time {
             font-size: 14px;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             color: var(--gold);
             font-weight: 600;
             margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         .event-description {
             color: var(--muted);
-            font-size: 14px;
-            line-height: 1.7;
+            font-size: 15px;
+            line-height: 1.6;
         }
 
         .event::after {
@@ -426,14 +448,15 @@
 
         .venue-name {
             font-family: var(--serif);
-            font-size: clamp(28px, 6vw, 48px);
+            font-size: clamp(26px, 5vw, 42px);
+            font-weight: 600;
         }
 
         .venue-address {
             margin-top: 15px;
             color: var(--muted);
             line-height: 1.8;
-            font-size: 15px;
+            font-size: 16px;
         }
 
         .map-button {
@@ -444,9 +467,11 @@
             color: var(--maroon);
             text-decoration: none;
             font-size: 13px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             transition: .3s ease;
             border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
         }
 
         .map-button:hover {
@@ -471,16 +496,18 @@
         }
 
         .closing-quote {
-            font-family: var(--serif);
-            font-size: clamp(28px, 5.5vw, 46px);
-            line-height: 1.4;
+            font-family: "Noto Serif Devanagari", serif;
+            font-size: clamp(24px, 4.5vw, 38px);
+            line-height: 1.5;
+            color: var(--deep-maroon);
         }
 
         .closing-small {
             margin-top: 30px;
             color: var(--maroon);
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 500;
+            font-family: "Noto Serif Devanagari", serif;
         }
 
         footer {
@@ -488,7 +515,8 @@
             padding: 30px;
             color: var(--muted);
             font-size: 13px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         /* =========================
@@ -630,21 +658,21 @@
             <div class="intro-om">ॐ</div>
 
             <div class="intro-names">
-                <span>आस्था</span>
-                <div class="intro-amp">संग</div>
-                <span>मोहित</span>
+                <span>Mohit</span>
+                <div class="intro-amp">weds</div>
+                <span>Astha</span>
             </div>
 
             <div class="intro-date-line">
-                शुभ विवाह तिथि: 5 दिसंबर 2026
+                Wedding Date: 5 December 2026
             </div>
 
             <div class="intro-family-line">
-                समस्त व्यास एवं श्रोत्रिय परिवार आपका हार्दिक स्वागत करता है
+                Together with our families, we warmly welcome you!
             </div>
 
             <button class="enter-button" id="enterButton">
-                निमंत्रण पत्र
+                Open Invitation
             </button>
         </div>
     </div>
@@ -655,7 +683,7 @@
     </audio>
 
     <!-- MUSIC CONTROL -->
-    <button class="music-control" id="musicControl" aria-label="संगीत चालू/बंद करें">
+    <button class="music-control" id="musicControl" aria-label="Toggle Music">
         <div class="music-icon"></div>
     </button>
 
@@ -673,7 +701,7 @@
                 </div>
 
                 <h1 class="card-title">
-                    सादर निमंत्रण
+                    Wedding Invitation
                 </h1>
 
                 <div class="divider"></div>
@@ -684,17 +712,19 @@
                 </p>
 
                 <div class="couple-details">
-                    <div class="person-info">
-                        <span class="person-name">सौ. आस्था</span><br>
-                        सुपुत्री श्री महेश जी शर्मा, सारंगपुर
-                    </div>
-
-                    <div style="margin: 15px 0; color: var(--gold); font-size: 18px;">— परिणय सूत्र —</div>
 
                     <div class="person-info">
-                        <span class="person-name">चि. मोहित</span><br>
-                        सुपुत्र श्री विष्णु प्रसाद जी व्यास, ग्राम देवली कलां
+                        <span class="person-name">Mohit</span>
+                        <div class="person-parent">S/o Shri Vishnu Prasad Vyas, Village Deoli Kalan, MP</div>
                     </div>
+
+                    <div style="margin: 15px 0; color: var(--gold); font-size: 18px; font-style: italic;">— weds —</div>
+
+                    <div class="person-info">
+                        <span class="person-name">Aastha</span>
+                        <div class="person-parent">D/o Shri Mahesh Sharma, Sarangpur, MP</div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -704,66 +734,66 @@
             <div class="section-inner">
                 <div class="reveal" style="text-align: center;">
                     <div class="section-label">
-                        मांगलिक कार्यक्रम
+                        Itinerary
                     </div>
 
                     <h2 class="section-title">
-                        उत्सव एवं कार्यक्रम
+                        Events & Celebrations
                     </h2>
                 </div>
 
                 <div class="events-grid reveal">
                     <div class="event">
                         <div class="event-number">01</div>
-                        <div class="event-name">हल्दी एवं संगीत</div>
-                        <div class="event-time">04 दिसंबर · दोपहर 3:00 बजे</div>
+                        <div class="event-name">Haldi & Sangeet</div>
+                        <div class="event-time">04 December · 3:00 PM</div>
                         <p class="event-description">
-                            रंग, संगीत और अपनों के साथ उल्लास एवं खुशियों का शुभ प्रारंभ।
+                            A vibrant celebration filled with turmeric, music, dancing, and precious moments.
                         </p>
                     </div>
 
                     <div class="event">
                         <div class="event-number">02</div>
-                        <div class="event-name">डी.जे. नाइट</div>
-                        <div class="event-time">04 दिसंबर · संध्या 6:30 बजे</div>
+                        <div class="event-name">DJ Night</div>
+                        <div class="event-time">04 December · 6:30 PM</div>
                         <p class="event-description">
-                            मधुर संगीत, नृत्य और आनंदमयी संध्या का उत्सव।
+                            An evening of joyful beats, dance, and music to celebrate together.
                         </p>
                     </div>
 
                     <div class="event">
                         <div class="event-number">03</div>
-                        <div class="event-name">तिलक समारोह</div>
-                        <div class="event-time">05 दिसंबर · प्रातः 11:00 बजे</div>
+                        <div class="event-name">Tilak Ceremony</div>
+                        <div class="event-time">05 December · 11:00 AM</div>
                         <p class="event-description">
-                            शुभ विवाह दिवस के मांगलिक संस्कारों का पावन शुभारंभ।
+                            The auspicious beginning of auspicious wedding rituals and blessings.
                         </p>
                     </div>
 
                     <div class="event">
                         <div class="event-number">04</div>
-                        <div class="event-name">बारात आगमन</div>
-                        <div class="event-time">05 दिसंबर · दोपहर 3:00 बजे</div>
+                        <div class="event-name">Baraat Procession</div>
+                        <div class="event-time">05 December · 3:00 PM</div>
                         <p class="event-description">
-                            गाजे-बाजे के साथ वर-यात्रा का भव्य एवं आत्मीय स्वागत।
+                            A grand, musical welcome for the groom and the wedding procession.
                         </p>
                     </div>
 
                     <div class="event">
                         <div class="event-number">05</div>
-                        <div class="event-name">म्यूजिकल फेरे</div>
-                        <div class="event-time">05 दिसंबर · अपराह्न 4:00 बजे</div>
+                        <div class="event-name">Pheras</div>
+                        <div class="event-time">05 December · 4:00 PM</div>
                         <p class="event-description">
-                            वैदिक मंत्रोच्चार और मधुर भजनों के बीच सप्तपदी के पवित्र वचन।
+                            Sacred wedding vows taken amidst Vedic chants and soul-stirring melodies.
                         </p>
                     </div>
 
                     <div class="event">
                         <div class="event-number">06</div>
-                        <div class="event-name">स्वरुचि भोज (रिसेप्शन)</div>
-                        <div class="event-time">05 दिसंबर · सायं 7:30 बजे से</div>
+                        <div class="event-name">Grand Reception</div>
+                        <div class="event-time">05 December · 7:30 PM onwards</div>
                         <p class="event-description">
-                            नवदंपति को आशीर्वाद एवं स्नेह प्रदान करने हेतु।
+                            Join us for dinner to shower your love and blessings upon the newlyweds.
                         </p>
                     </div>
                 </div>
@@ -774,26 +804,26 @@
         <section class="venue">
             <div class="section-inner reveal" style="text-align: center;">
                 <div class="section-label">
-                    कार्यक्रम स्थल
+                    Location
                 </div>
 
                 <h2 class="section-title">
-                    विवाह स्थल
+                    Wedding Venue
                 </h2>
 
                 <div class="venue-box">
                     <div class="venue-name">
-                        राठी मांगलिक परिसर
+                        Rathi Manglik Parisar
                     </div>
 
                     <div class="venue-address">
-                        सारंगपुर, जिला राजगढ़<br>
-                        मध्य प्रदेश · भारत
+                        Sarangpur, Dist. Rajgarh<br>
+                        Madhya Pradesh · India
                     </div>
 
                     <a href="https://www.google.com/maps/search/?api=1&query=Rathi+Manglik+Parisar+Sarangpur+Madhya+Pradesh"
                         target="_blank" class="map-button">
-                        गूगल मैप्स पर रास्ता देखें
+                        View on Google Maps
                     </a>
                 </div>
             </div>
@@ -817,7 +847,7 @@
         </section>
 
         <footer>
-            सौ. आस्था संग चि. मोहित · 5 दिसंबर 2026
+            Aastha & Mohit · 5 December 2026
         </footer>
     </main>
 
