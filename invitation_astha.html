@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f3ed" />
+
+    <title>सौ. आस्था संग चि. मोहित | विवाह निमंत्रण</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+
+        :root {
+            --cream: #fbf4e8;
+            --paper: #fffaf1;
+            --dark: #5a1020;
+            --maroon: #74152a;
+            --deep-maroon: #4a0b18;
+            --muted: #7d655d;
+            --accent: #b58a3a;
+            --gold: #c49a4a;
+            --line: rgba(90, 16, 32, 0.14);
+            --serif: "Rozha One", "Yatra One", "Noto Serif Devanagari", serif;
+            --sans: "Noto Serif Devanagari", "Tiro Devanagari Hindi", serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--maroon);
+            font-family: var(--sans);
+            font-weight: 400;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           INTRO / LANDING SCREEN
+        ========================== */
+
+        .intro {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: var(--deep-maroon);
+            color: #fffaf1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: opacity 1s ease, visibility 1s ease;
+            padding: 20px;
+        }
+
+        .intro.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .intro-inner {
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 25px;
+            border: 1px solid rgba(228, 199, 125, 0.4);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: introIn 1.2s ease forwards;
+            position: relative;
+        }
+
+        .intro-inner::before {
+            content: "";
+            position: absolute;
+            inset: 6px;
+            border: 1px dashed rgba(228, 199, 125, 0.25);
+            pointer-events: none;
+        }
+
+        .intro-blessing {
+            font-family: "Noto Serif Devanagari", serif;
+            font-size: 16px;
+            color: #e4c77d;
+            margin-bottom: 5px;
+        }
+
+        .intro-om {
+            font-size: 32px;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .intro-names {
+            font-family: var(--serif);
+            font-size: clamp(38px, 10vw, 65px);
+            line-height: 1.1;
+            font-weight: 400;
+            color: #fffaf1;
+            margin: 15px 0;
+        }
+
+        .intro-names span {
+            display: block;
+        }
+
+        .intro-amp {
+            font-size: 22px;
+            margin: 6px 0;
+            color: var(--gold);
+        }
+
+        .intro-date-line {
+            font-size: 15px;
+            letter-spacing: 1px;
+            color: #e4c77d;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .intro-family-line {
+            font-size: 13px;
+            color: rgba(255, 250, 241, 0.75);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .enter-button {
+            margin-top: 35px;
+            border: 1px solid var(--gold);
+            background: var(--gold);
+            color: var(--deep-maroon);
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-family: var(--sans);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .enter-button:hover {
+            background: #fffaf1;
+            color: var(--deep-maroon);
+        }
+
+        @keyframes introIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           MUSIC BUTTON
+        ========================== */
+
+        .music-control {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 100;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: rgba(251, 249, 245, .85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s ease;
+        }
+
+        .music-control.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .music-icon {
+            width: 15px;
+            height: 15px;
+            border: 1px solid var(--maroon);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .music-icon::after {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: var(--dark);
+            border-radius: 50%;
+            left: 4px;
+            top: 4px;
+        }
+
+        /* =========================
+           MAIN INVITATION CARD (HERO)
+        ========================== */
+
+        .main-card-section {
+            min-height: 100svh;
+            padding: 80px 20px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .invitation-card {
+            max-width: 800px;
+            width: 100%;
+            margin: auto;
+            background: var(--paper);
+            color: var(--maroon);
+            padding: 55px 35px;
+            border-radius: 8px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 15px 35px rgba(90, 16, 32, 0.12);
+            text-align: center;
+            position: relative;
+        }
+
+        .invitation-card::before {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border: 1px solid rgba(181, 138, 58, 0.35);
+            pointer-events: none;
+        }
+
+        .ganesh-blessing {
+            font-family: "Noto Serif Devanagari", serif;
+            font-size: clamp(18px, 2.8vw, 24px);
+            font-weight: 600;
+            color: var(--maroon);
+            margin-bottom: 8px;
+        }
+
+        .om-symbol {
+            font-family: "Noto Serif Devanagari", serif;
+            color: var(--gold);
+            font-size: clamp(34px, 6vw, 48px);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .card-label {
+            font-size: 15px;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-family: var(--serif);
+            font-size: clamp(36px, 7vw, 56px);
+            font-weight: 400;
+            color: var(--deep-maroon);
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 25px auto;
+        }
+
+        .body-text {
+            max-width: 650px;
+            margin: auto;
+            color: var(--muted);
+            line-height: 2;
+            font-size: 16px;
+        }
+
+        .couple-details {
+            margin-top: 35px;
+            padding: 30px 15px;
+            background: rgba(181, 138, 58, 0.06);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .person-info {
+            margin: 15px 0;
+            font-size: 17px;
+            color: var(--deep-maroon);
+            line-height: 1.7;
+        }
+
+        .person-name {
+            font-family: var(--serif);
+            font-size: 30px;
+            color: var(--maroon);
+            display: inline-block;
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================== */
+
+        section {
+            padding: 90px 24px;
+        }
+
+        .section-inner {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .section-label {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 400;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .shlok-sub {
+            text-align: center;
+            font-family: "Noto Serif Devanagari", serif;
+            color: var(--muted);
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* =========================
+           EVENTS (3-DAY SCHEDULE)
+        ========================== */
+
+        .events {
+            background: var(--paper);
+        }
+
+        .days-container {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .day-column {
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 15px rgba(90, 16, 32, 0.04);
+        }
+
+        .day-header {
+            text-align: center;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .day-date {
+            font-family: var(--serif);
+            font-size: 20px;
+            color: var(--deep-maroon);
+        }
+
+        .day-name {
+            font-size: 14px;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .event-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed rgba(181, 138, 58, 0.2);
+        }
+
+        .event-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .event-name {
+            font-family: var(--serif);
+            font-size: 18px;
+            color: var(--maroon);
+            margin-bottom: 4px;
+        }
+
+        .event-time {
+            font-size: 13px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .event-loc {
+            font-size: 12px;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        /* =========================
+           VENUE
+        ========================== */
+
+        .venue {
+            background: #efe1cf;
+        }
+
+        .venue-box {
+            margin-top: 35px;
+            padding: 40px 25px;
+            border: 1px solid rgba(37, 34, 31, .15);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 6px;
+        }
+
+        .venue-name {
+            font-family: var(--serif);
+            font-size: clamp(26px, 5vw, 42px);
+            color: var(--deep-maroon);
+        }
+
+        .venue-address {
+            margin-top: 15px;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .map-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 28px;
+            border: 1px solid var(--maroon);
+            color: var(--maroon);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: .3s ease;
+            border-radius: 4px;
+        }
+
+        .map-button:hover {
+            background: var(--maroon);
+            color: #fffaf1;
+        }
+
+        /* =========================
+           RECEPTION / BLESSING
+        ========================== */
+
+        .reception-section {
+            background: var(--paper);
+            text-align: center;
+        }
+
+        .reception-box {
+            max-width: 650px;
+            margin: 35px auto 0;
+            padding: 35px;
+            background: rgba(181, 138, 58, 0.05);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+        }
+
+        .reception-title {
+            font-family: var(--serif);
+            font-size: 24px;
+            color: var(--deep-maroon);
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           CLOSING
+        ========================== */
+
+        .closing {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .closing-content {
+            max-width: 650px;
+        }
+
+        .closing-quote {
+            font-family: var(--serif);
+            font-size: clamp(26px, 5vw, 42px);
+            line-height: 1.4;
+        }
+
+        .closing-small {
+            margin-top: 30px;
+            color: var(--maroon);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--muted);
+            font-size: 13px;
+            letter-spacing: 1px;
+            background: var(--deep-maroon);
+            color: #fffaf1;
+        }
+
+        /* =========================
+           DECORATIONS & MOBILE
+        ========================== */
+
+        .top-decoration {
+            position: fixed;
+            z-index: 90;
+            pointer-events: none;
+            width: min(220px, 28vw);
+            max-height: 220px;
+            object-fit: contain;
+            opacity: .95;
+            filter: drop-shadow(0 8px 14px rgba(74, 11, 24, .08));
+        }
+
+        .top-left-decoration {
+            top: 0;
+            left: 0;
+            transform-origin: top left;
+        }
+
+        .top-right-decoration {
+            top: 0;
+            right: 0;
+            transform-origin: top right;
+        }
+
+        .petal-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 80;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            top: -40px;
+            width: 10px;
+            height: 14px;
+            border-radius: 70% 30% 70% 30%;
+            background: rgba(181, 138, 58, .72);
+            box-shadow: 0 1px 3px rgba(74, 11, 24, .10);
+            animation: petalFall linear infinite;
+        }
+
+        .petal:nth-child(3n) {
+            background: rgba(126, 24, 48, .55);
+            width: 8px;
+            height: 12px;
+        }
+
+        .petal:nth-child(4n) {
+            background: rgba(237, 205, 145, .78);
+            width: 7px;
+            height: 10px;
+        }
+
+        @keyframes petalFall {
+            0% {
+                transform: translate3d(0, -40px, 0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: .75;
+            }
+
+            50% {
+                transform: translate3d(55px, 50vh, 0) rotate(180deg);
+            }
+
+            100% {
+                transform: translate3d(-45px, 110vh, 0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .days-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 750px) {
+            section {
+                padding: 70px 20px;
+            }
+
+            .main-card-section {
+                padding-top: 60px;
+            }
+
+            .invitation-card {
+                padding: 35px 18px;
+            }
+
+            .top-decoration {
+                width: 120px;
+                max-height: 120px;
+            }
+
+            .ganesh-blessing {
+                font-size: 16px;
+            }
+
+            .om-symbol {
+                font-size: 34px;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floral decorations -->
+    <img src="assets/top-right-decoration.png" alt="" class="top-decoration top-right-decoration" aria-hidden="true">
+    <img src="assets/top-left-decoration.png" alt="" class="top-decoration top-left-decoration" aria-hidden="true">
+
+    <!-- Falling petals -->
+    <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
+
+    <!-- LANDING / INTRO SCREEN -->
+    <div class="intro" id="intro">
+        <div class="intro-inner">
+            <div class="intro-blessing">
+                ॥ श्री गणेशाय नमः ॥
+            </div>
+            <div class="intro-om">ॐ</div>
+
+            <div class="intro-names">
+                <span>आस्था</span>
+                <div class="intro-amp">संग</div>
+                <span>मोहित</span>
+            </div>
+
+            <div class="intro-date-line">
+                शुभ विवाह तिथि: 5 दिसंबर 2026
+            </div>
+
+            <div class="intro-family-line">
+                श्री महेश जी शर्मा परिवार की ओर से सादर आमंत्रण
+            </div>
+
+            <button class="enter-button" id="enterButton">
+                निमंत्रण देखें
+            </button>
+        </div>
+    </div>
+
+    <!-- AUDIO -->
+    <audio id="weddingMusic" loop preload="auto">
+        <source src="assets/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MUSIC CONTROL -->
+    <button class="music-control" id="musicControl" aria-label="संगीत चालू/बंद करें">
+        <div class="music-icon"></div>
+    </button>
+
+    <main>
+        <!-- MAIN INVITATION CARD SECTION (HERO) -->
+        <section class="main-card-section">
+            <div class="invitation-card reveal">
+                <div class="ganesh-blessing">
+                    ॥ श्री गणेशाय नमः ॥
+                </div>
+                <div class="om-symbol" aria-hidden="true">ॐ</div>
+
+                <div class="card-label">
+                    शुभ अवसर
+                </div>
+
+                <h1 class="card-title">
+                    सादर निमंत्रण
+                </h1>
+
+                <div class="divider"></div>
+
+                <p class="body-text">
+                    परमपिता परमेश्वर की असीम कृपा से हमारे परिवार में परिणय उत्सव का शुभ अवसर आया है। इस मांगलिक अवसर पर
+                    आपका स्नेहिल आशीर्वाद एवं गरिमामयी उपस्थिति हमारे लिए अत्यंत वंदनीय है।
+                </p>
+
+                <div class="couple-details">
+                    <div class="person-info">
+                        <span class="person-name">सौ. आस्था</span><br>
+                        सुपुत्री श्री महेश जी शर्मा, सारंगपुर
+                    </div>
+
+                    <div style="margin: 15px 0; color: var(--gold); font-size: 18px;">— परिणय सूत्र —</div>
+
+                    <div class="person-info">
+                        <span class="person-name">चि. मोहित</span><br>
+                        सुपुत्र श्री विष्णु प्रसाद जी व्यास, ग्राम देवली कलां
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENTS (3-DAY SCHEDULE) -->
+        <section class="events">
+            <div class="section-inner">
+                <div class="reveal">
+                    <div class="section-label">
+                        मांगलिक कार्यक्रम
+                    </div>
+
+                    <h2 class="section-title">
+                        परिणयोट्सव के मांगलिक प्रसंग
+                    </h2>
+                    <div class="shlok-sub">
+                        ॥ मंगलम भगवान विष्णुः, मंगलम गरुध्वजः। मंगलम पुण्डरीकाक्ष, मंगलाय तनो हरिः ॥
+                    </div>
+                </div>
+
+                <div class="days-container reveal">
+                    <!-- Day 1: 3 December -->
+                    <div class="day-column">
+                        <div class="day-header">
+                            <div class="day-date">3 दिसंबर 2026</div>
+                            <div class="day-name">गुरुवार</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">माता पूजन</div>
+                            <div class="event-time">प्रातः 9:00 बजे</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">गणेश पूजन</div>
+                            <div class="event-time">दोप. 3:00 बजे</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">सत्यनारायण कथा</div>
+                            <div class="event-time">सायं 4:00 बजे</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">मेहंदी</div>
+                            <div class="event-time">सायं 6:00 बजे</div>
+                            <div class="event-loc">स्थान: सोनी जी की बिल्डिंग, बदलीपुरा मंदिर के पास, सारंगपुर</div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2: 4 December -->
+                    <div class="day-column">
+                        <div class="day-header">
+                            <div class="day-date">4 दिसंबर 2026</div>
+                            <div class="day-name">शुक्रवार</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">मंडप पूजन</div>
+                            <div class="event-time">प्रातः 9:00 बजे</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">गंगा पूजन</div>
+                            <div class="event-time">प्रातः 11:00 बजे</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">धोली कलश</div>
+                            <div class="event-time">दोप. 12:00 बजे</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">हल्दी</div>
+                            <div class="event-time">सायं 3:00 बजे</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">डी.जे. नाईट</div>
+                            <div class="event-time">रात्रि 7:00 बजे</div>
+                            <div class="event-loc">स्थान: राठी मांगलिक परिसर, सारंगपुर</div>
+                        </div>
+                    </div>
+
+                    <!-- Day 3: 5 December -->
+                    <div class="day-column">
+                        <div class="day-header">
+                            <div class="day-date">5 दिसंबर 2026</div>
+                            <div class="day-name">शनिवार</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">मामेरा</div>
+                            <div class="event-time">प्रातः 9:00 बजे</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">टीका एवं फलदान</div>
+                            <div class="event-time">प्रातः 11:00 बजे</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">बारात (जुलूस)</div>
+                            <div class="event-time">दोप. 2:00 बजे</div>
+                        </div>
+
+                        <div class="event-item">
+                            <div class="event-name">पाणिग्रहण संस्कार एवं म्यूजिकल फेरे</div>
+                            <div class="event-time">दोप. 4:00 बजे</div>
+                            <div class="event-loc">स्थान: राठी मांगलिक परिसर, सारंगपुर</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VENUE & RECEPTION -->
+        <section class="venue">
+            <div class="section-inner reveal" style="text-align: center;">
+                <div class="section-label">
+                    कार्यक्रम स्थल एवं भोज
+                </div>
+
+                <h2 class="section-title">
+                    विवाह एवं आशीर्वाद समारोह
+                </h2>
+
+                <div class="venue-box">
+                    <div class="venue-name">
+                        राठी मांगलिक परिसर
+                    </div>
+
+                    <div class="venue-address">
+                        बस स्टैंड के पास, सारंगपुर, जिला राजगढ़ (ब्यावरा), मध्य प्रदेश
+                    </div>
+
+                    <div style="margin-top: 20px; font-weight: 600; color: var(--deep-maroon);">
+                        ॥ आशीर्वाद समारोह एवं स्वरुचिभोज ॥<br>
+                        <span style="font-weight: 400; font-size: 14px; color: var(--muted);">5 दिसंबर 2026, शनिवार · सायं 7:00 बजे से आपके शुभ आगमन तक</span>
+                    </div>
+
+                    <a href="https://www.google.com/maps/search/?api=1&query=Rathi+Manglik+Parisar+Sarangpur+Madhya+Pradesh"
+                        target="_blank" class="map-button">
+                        गूगल मैप्स पर रास्ता देखें
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLOSING -->
+        <section class="closing">
+            <div class="closing-content reveal">
+                <div class="section-label">
+                    स्नेहाकांक्षी एवं दर्शनाभिलाषी
+                </div>
+
+                <div class="closing-quote">
+                    “आपकी गरिमामयी उपस्थिति ही<br>हमारा परम सौभाग्य है।”
+                </div>
+
+                <div class="closing-small">
+                    श्री महेश जी शर्मा एवं समस्त परिवार, सारंगपुर
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            सौ. आस्था संग चि. मोहित · 5 दिसंबर 2026
+        </footer>
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        /* MUSIC CONTROL */
+        const intro = document.getElementById("intro");
+        const enterButton = document.getElementById("enterButton");
+        const music = document.getElementById("weddingMusic");
+        const musicControl = document.getElementById("musicControl");
+
+        let musicPlaying = false;
+
+        enterButton.addEventListener("click", async () => {
+            try {
+                await music.play();
+                musicPlaying = true;
+            } catch (error) {
+                console.log("Audio play failed:", error);
+            }
+
+            intro.classList.add("hidden");
+            musicControl.classList.add("visible");
+            document.body.style.overflow = "auto";
+        });
+
+        musicControl.addEventListener("click", async () => {
+            if (musicPlaying) {
+                music.pause();
+                musicPlaying = false;
+            } else {
+                try {
+                    await music.play();
+                    musicPlaying = true;
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        });
+
+        /* SCROLL REVEAL */
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            },
+            { threshold: 0.12 }
+        );
+
+        document.querySelectorAll(".reveal").forEach(element => {
+            observer.observe(element);
+        });
+
+        /* FALLING PETALS */
+        const petalLayer = document.getElementById("petalLayer");
+        const petalCount = window.innerWidth < 700 ? 14 : 24;
+
+        for (let i = 0; i < petalCount; i++) {
+            const petal = document.createElement("span");
+            petal.className = "petal";
+            petal.style.left = `${Math.random() * 100}%`;
+            petal.style.animationDuration = `${7 + Math.random() * 8}s`;
+            petal.style.animationDelay = `${-Math.random() * 12}s`;
+            petal.style.transform = `rotate(${Math.random() * 360}deg)`;
+            petal.style.opacity = `${0.35 + Math.random() * 0.45}`;
+            petalLayer.appendChild(petal);
+        }
+
+        /* INITIAL SCROLL LOCK */
+        document.body.style.overflow = "hidden";
+    </script>
+</body>
+
+</html>
